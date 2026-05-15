@@ -1,20 +1,45 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Namma Yantra Share
 
-# Run and deploy your AI Studio app
+A mobile application for sharing and booking farm machinery by the hour.
 
-This contains everything you need to run your app locally.
+## Features
+- User registration and login
+- Add farm machinery
+- View available machines
+- Book machines by hourly rate
+- Calculate total price automatically
+- View booking history and status
+- Manage profile
 
-View your app in AI Studio: https://ai.studio/apps/e20cae95-b669-4a1c-bdb2-9a0175747276
+## Screenshot
+<img width="1536" height="1024" alt="OutputScreenshots" src="https://github.com/user-attachments/assets/5dd24bc5-fef9-4ea8-a1fd-d7f5c831c657" />
 
-## Run Locally
+##SystemArchitecture
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/e423a86b-2b3a-4d3a-b3ac-f4ca885ea784" />
 
-**Prerequisites:**  Node.js
+## Tech Stack
+- Android Studio
+- Kotlin/Java
+- Firebase
+- XML
 
+## Setup
+1. Clone the repository.
+2. Open in Android Studio.
+3. Add Firebase configuration.
+4. Run on an emulator or Android device.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Usage
+1. Register or log in.
+2. Add or view machines.
+3. Select a machine.
+4. Enter hours and confirm booking.
+
+## Future Scope
+- Online payments
+- GPS-based machine search
+- Push notifications
+- Real-time availability
+
+## Conclusion
+This app helps farmers access machinery easily through a simple digital booking system.
