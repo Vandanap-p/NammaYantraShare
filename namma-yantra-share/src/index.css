@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@theme {
+  --color-agri-green: #2E7D32;
+  --color-agri-earth: #8D6E63;
+  --color-status-pending: #FFB300;
+  --color-status-accepted: #4CAF50;
+  --color-status-declined: #F44336;
+}
+
+body {
+  @apply bg-slate-900;
+}

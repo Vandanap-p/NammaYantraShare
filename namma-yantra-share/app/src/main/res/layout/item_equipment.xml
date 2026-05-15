@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/ivEquipment"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@android:drawable/ic_menu_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Tractor Mahindra 575"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/ivEquipment"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvOwner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Owner: Raju Gowda"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@id/tvName"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+        <TextView
+            android:id="@+id/tvOwnerPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone: 9876543210"
+            android:textSize="11sp"
+            android:textColor="#666666"
+            app:layout_constraintStart_toStartOf="@id/tvName"
+            app:layout_constraintTop_toBottomOf="@id/tvOwner" />
+
+        <TextView
+            android:id="@+id/tvOwnerAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address: Village Main St"
+            android:textSize="11sp"
+            android:textColor="#666666"
+            app:layout_constraintStart_toStartOf="@id/tvName"
+            app:layout_constraintTop_toBottomOf="@id/tvOwnerPhone" />
+
+        <TextView
+            android:id="@+id/tvRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="₹500 / Hour"
+            android:textColor="@color/agri_green"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/tvName"
+            app:layout_constraintTop_toBottomOf="@id/tvOwnerAddress" />
+
+        <TextView
+            android:id="@+id/tvAvailability"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Available Now"
+            android:textColor="@color/agri_green"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDistance"
+            android:layout_width="wrap_item"
+            android:layout_height="wrap_content"
+            android:text="2.5 km away"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAvailability" />
+
+        <TextView
+            android:id="@+id/tvDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="50HP, Power Steering, 2024 model"
+            android:textColor="#888888"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/ivEquipment" />
+
+        <TextView
+            android:id="@+id/tvHealth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Health: Excellent"
+            android:textColor="@color/agri_earth"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDetails" />
+
+        <TextView
+            android:id="@+id/tvLastWork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="Last Work: Never"
+            android:textColor="#3F51B5"
+            android:textSize="10sp"
+            android:textStyle="italic"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvHealth" />
+
+        <LinearLayout
+            android:id="@+id/llUpdateHealth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/tvHealth">
+
+            <EditText
+                android:id="@+id/etNewHealth"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="New Health Status"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btnSaveHealth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SAVE"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnRent"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Details"
+            android:textColor="@color/agri_green"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnUpdateHealthAction"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="UPDATE HEALTH"
+            android:textColor="@color/agri_earth"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnRent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

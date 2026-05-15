@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvMachineName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mahindra 575 DI"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvOwnerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Owner: Ramesh"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvOwnerAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address: Village Main St"
+            android:textSize="12sp"
+            android:textColor="#666666" />
+
+        <TextView
+            android:id="@+id/tvBookingDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Duration: 4 hrs | Total: ₹1600"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvTimeRange"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="08:00 to 12:00 | May 15, 2026"
+            android:textSize="12sp"
+            android:textColor="#999999"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="PENDING"
+            android:textColor="@color/agri_earth"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/llAcceptedActions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Call Owner"
+                app:icon="@drawable/ic_droplet"
+                android:backgroundTint="#E3F2FD"
+                android:textColor="#1976D2"
+                app:iconTint="#1976D2"
+                app:cornerRadius="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFarmerConfirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="CONFIRM BOOKING & PROCEED"
+                android:backgroundTint="@color/agri_green"
+                app:cornerRadius="8dp" />
+
+            <LinearLayout
+                android:id="@+id/llPaymentOptions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PAYMENT OPTIONS"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#9E9E9E" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPayOnline"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginEnd="4dp"
+                        android:text="Pay Online"
+                        android:textSize="10sp"
+                        android:backgroundTint="#2E7D32"
+                        app:cornerRadius="8dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnPayAfter"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Pay After Work"
+                        android:textSize="10sp"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:textColor="#2E7D32"
+                        app:strokeColor="#2E7D32"
+                        app:cornerRadius="8dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llBookingSuccess"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#F1F8E9"
+            android:padding="12dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BOOKING SUCCESSFUL"
+                android:textColor="#2E7D32"
+                android:textStyle="bold"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvOwnerContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Contact: Ramesh (98765 43210)"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMarkDone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="MARK WORK AS DONE"
+            android:backgroundTint="@color/agri_earth"
+            android:visibility="gone"
+            app:cornerRadius="8dp" />
+
+        <LinearLayout
+            android:id="@+id/llReviewSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:background="#FFF9C4"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HOW WAS THE WORK?"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="#F57F17" />
+
+            <RatingBar
+                android:id="@+id/rbRating"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:numStars="5"
+                android:rating="5"
+                android:stepSize="1.0"
+                android:progressTint="#FBD400"
+                android:secondaryProgressTint="#FBD400" />
+
+            <EditText
+                android:id="@+id/etComment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:hint="Add a comment"
+                android:textSize="12sp"
+                android:background="@android:color/white"
+                android:padding="8dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSubmitReview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="SUBMIT REVIEW"
+                android:textSize="10sp"
+                android:backgroundTint="#F57F17" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvReviewDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:padding="8dp"
+            android:background="#E1F5FE"
+            android:visibility="gone"
+            android:textSize="12sp"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

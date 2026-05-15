@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Namma Yantra Share</string>
+    <string name="tractor">Tractor</string>
+    <string name="harvester">Harvester</string>
+    <string name="sprayer">Sprayer</string>
+    <string name="rent_now">Rent Now</string>
+    <string name="hourly_rate">Hourly Rate: ₹%d</string>
+    <string name="daily_rate">Daily Rate: ₹%d</string>
+    <string name="total_price">Total: ₹%d</string>
+    <string name="book_request">Send Rental Request</string>
+</resources>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rental Request"
+            android:textColor="@color/agri_green"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardDetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:id="@+id/tvSelectedName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mahindra 575 DI"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvOwnerDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Owner: Raju Gowda | 9876543210"
+                    android:textSize="12sp"
+                    android:textColor="#333333"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvOwnerAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Address: Village Center"
+                    android:textSize="12sp"
+                    android:textColor="#666666" />
+
+                <TextView
+                    android:id="@+id/tvHealth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Condition: Excellent"
+                    android:textColor="#666666" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/tvSelectDateLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Select Date"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cardDetails" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDatePicker"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pick Date"
+            app:layout_constraintTop_toBottomOf="@id/tvSelectDateLabel" />
+
+        <TextView
+            android:id="@+id/tvSelectTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Select Time Range"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnDatePicker" />
+
+        <LinearLayout
+            android:id="@+id/llTimeRange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tvSelectTimeLabel">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnStartTime"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Start: 08:00"
+                app:icon="@drawable/ic_search" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnEndTime"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="End: 12:00"
+                app:icon="@drawable/ic_search" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSelectedDuration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Predicted Duration: 4 Hours"
+            android:textStyle="bold"
+            android:textColor="@color/agri_green"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llTimeRange" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintTop_toBottomOf="@id/tvSelectedDuration" />
+
+        <TextView
+            android:id="@+id/tvPriceCalc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Price Calculation:"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider" />
+
+        <TextView
+            android:id="@+id/tvPriceBreakdown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4 hours x ₹500"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPriceCalc" />
+
+        <TextView
+            android:id="@+id/tvTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total: ₹2000"
+            android:textColor="@color/agri_green"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvPriceBreakdown" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_marginTop="32dp"
+            android:text="Submit Request"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/tvTotalPrice" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

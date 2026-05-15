@@ -1,0 +1,105 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "role": { "type": "string", "enum": ["FARMER", "OWNER"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "name", "role", "phone"]
+    },
+    "Machine": {
+      "title": "Machine",
+      "description": "Machinery listed for rent",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "type": { "type": "string" },
+        "ownerUid": { "type": "string" },
+        "ownerName": { "type": "string" },
+        "ownerPhone": { "type": "string" },
+        "ownerAddress": { "type": "string" },
+        "hourlyRate": { "type": "number" },
+        "dailyRate": { "type": "number" },
+        "healthCondition": { "type": "string" },
+        "lastWork": { "type": "string" },
+        "isAvailable": { "type": "boolean" },
+        "distanceKm": { "type": "number" },
+        "imageUrl": { "type": "string" },
+        "details": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "name", "ownerUid", "hourlyRate", "type"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "Rental requests and status",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "machineId": { "type": "string" },
+        "machineName": { "type": "string" },
+        "ownerUid": { "type": "string" },
+        "ownerName": { "type": "string" },
+        "ownerPhone": { "type": "string" },
+        "farmerUid": { "type": "string" },
+        "farmerName": { "type": "string" },
+        "farmerPhone": { "type": "string" },
+        "farmerAddress": { "type": "string" },
+        "date": { "type": "string" },
+        "startTime": { "type": "string" },
+        "endTime": { "type": "string" },
+        "duration": { "type": "number" },
+        "amount": { "type": "number" },
+        "status": { "type": "string", "enum": ["PENDING", "ACCEPTED", "DECLINED"] },
+        "paymentMethod": { "type": "string" },
+        "farmerConfirmed": { "type": "boolean" },
+        "ownerFinalized": { "type": "boolean" },
+        "isCompleted": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "machineId", "farmerUid", "ownerUid", "status"]
+    },
+    "Review": {
+      "title": "Review",
+      "description": "User reviews for machines",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "machineId": { "type": "string" },
+        "machineName": { "type": "string" },
+        "farmerName": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "date": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "machineId", "rating", "comment"]
+    }
+  },
+  "firestore": {
+    "/users/{uid}": {
+      "schema": "User",
+      "description": "User documents indexed by UID"
+    },
+    "/machines/{machineId}": {
+      "schema": "Machine",
+      "description": "Global list of machines"
+    },
+    "/bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Global list of bookings"
+    },
+    "/reviews/{reviewId}": {
+      "schema": "Review",
+      "description": "Global list of reviews"
+    }
+  }
+}

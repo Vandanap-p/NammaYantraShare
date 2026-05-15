@@ -1,0 +1,6 @@
+{
+  "name": "Namma Yantra Share",
+  "description": "A peer-to-peer machinery rental app (Uber for Tractors) for small farmers.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["firebase", "location"]
+}

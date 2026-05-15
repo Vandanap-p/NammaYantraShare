@@ -1,0 +1,79 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Default deny
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // --- Helpers ---
+    function isSignedIn() { return request.auth != null; }
+    function isOwner(uid) { return isSignedIn() && request.auth.uid == uid; }
+    function incoming() { return request.resource.data; }
+    function existing() { return resource.data; }
+    function isValidId(id) { return id is string && id.size() <= 128; }
+
+    // --- User Validation ---
+    function isValidUser(data) {
+      return data.keys().hasAll(['uid', 'name', 'phone', 'role']) &&
+             data.uid == request.auth.uid &&
+             data.name is string && data.name.size() <= 100 &&
+             data.phone is string && data.phone.size() <= 20 &&
+             data.role in ['FARMER', 'OWNER'];
+    }
+
+    match /users/{uid} {
+      allow read: if isSignedIn();
+      allow create: if isOwner(uid) && isValidUser(incoming());
+      allow update: if isOwner(uid) && isValidUser(incoming());
+    }
+
+    // --- Machine Validation ---
+    function isValidMachine(data) {
+      return data.keys().hasAll(['id', 'name', 'type', 'ownerUid', 'hourlyRate']) &&
+             data.ownerUid == request.auth.uid &&
+             data.name is string && data.name.size() <= 100 &&
+             data.hourlyRate is number && data.hourlyRate > 0;
+    }
+
+    match /machines/{machineId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && isValidMachine(incoming());
+      allow update: if isSignedIn() && (
+        isOwner(existing().ownerUid) && isValidMachine(incoming()) ||
+        // Allow a booking to update isAvailable if it's atomic (but rules can't easily enforce atomic across collections without existsAfter)
+        // For simplicity in this demo, owner manages availability
+        (isOwner(existing().ownerUid) && incoming().diff(existing()).affectedKeys().hasOnly(['isAvailable', 'healthCondition', 'lastWork']))
+      );
+    }
+
+    // --- Booking Validation ---
+    function isValidBooking(data) {
+      return data.keys().hasAll(['id', 'machineId', 'farmerUid', 'ownerUid', 'status']) &&
+             data.farmerUid == request.auth.uid &&
+             data.status == 'PENDING';
+    }
+
+    match /bookings/{bookingId} {
+      allow read: if isSignedIn() && (isOwner(resource.data.farmerUid) || isOwner(resource.data.ownerUid));
+      allow create: if isSignedIn() && isValidBooking(incoming());
+      allow update: if isSignedIn() && (
+        // Farmer updating their booking (confirmation, payment)
+        (isOwner(existing().farmerUid) && incoming().diff(existing()).affectedKeys().hasAny(['farmerConfirmed', 'paymentMethod', 'isCompleted'])) ||
+        // Owner updating (accept/decline, finalize)
+        (isOwner(existing().ownerUid) && incoming().diff(existing()).affectedKeys().hasAny(['status', 'ownerFinalized', 'isCompleted']))
+      );
+    }
+
+    // --- Review Validation ---
+    function isValidReview(data) {
+      return data.keys().hasAll(['id', 'machineId', 'rating']) &&
+             data.rating >= 1 && data.rating <= 5;
+    }
+
+    match /reviews/{reviewId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && isValidReview(incoming());
+    }
+  }
+}

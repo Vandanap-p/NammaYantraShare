@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="32dp">
+
+    <ImageView
+        android:id="@+id/ivStatus"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@android:drawable/ic_dialog_info"
+        app:layout_constraintBottom_toTopOf="@id/tvStatusTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:id="@+id/tvStatusTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Request Pending"
+        android:textColor="@color/status_pending"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/tvStatusDesc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ivStatus" />
+
+    <TextView
+        android:id="@+id/tvStatusDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="Waiting for Raju Gowda to accept your request for the Mahindra 575 DI."
+        app:layout_constraintBottom_toTopOf="@id/btnBack"
+        app:layout_constraintTop_toBottomOf="@id/tvStatusTitle" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Back to Dashboard"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvStatusDesc" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
